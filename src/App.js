@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Tariff from './components/Tariff';
+
+
+  
 
 function App() {
+  const rates = [
+    { name: "Безлимитный 300", price: "300", speed: "До 10 Мбит/сек"},
+    { name: "Безлимитный 450", price: "450", speed: "До 50 Мбит/сек"},
+    { name: "Безлимитный 550", price: "550", speed: "До 100 Мбит/сек", isBigger:true},
+    { name: "Безлимитный 1000", price: "1000", speed: "До 200 Мбит/сек"},
+   ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {rates.map((rate) =>
+      <Tariff name={rate.name} price={rate.price} speed={rate.speed} isBigger={rate.isBigger}/>
+      )
+      }
+         
+      
     </div>
   );
 }
